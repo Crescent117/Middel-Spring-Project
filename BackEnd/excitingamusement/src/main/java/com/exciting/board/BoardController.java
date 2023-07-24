@@ -2,10 +2,7 @@ package com.exciting.board;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import com.exciting.entity.*;
@@ -106,14 +103,13 @@ public class BoardController {
 	public ResponseEntity<?> boardView(BoardDTO boardDTO) {
 		try {
 			BoardEntity boardEntity = BoardDTO.toEntity(boardDTO);
-			Long boardReplyCnt = service.boardReplyCnt(boardDTO.getBoard_id());
 			service.boardVisit(boardEntity);
 			int board_id =boardDTO.getBoard_id();
 
 			List<BoardImgDTO> boardImgDTOList = selectBoardImgAndToDTOList(board_id);
 
 			BoardDTO boardViewData = service.boardView(boardDTO.getBoard_id());
-			JSONObject jsonObj = createBoardJsonObject(boardViewData, boardImgDTOList, boardReplyCnt);
+			JSONObject jsonObj = createBoardJsonObject(boardViewData, boardImgDTOList);
 
 			ResponseDTO<JSONObject> response = ResponseDTO.<JSONObject>builder().json(jsonObj).build();
 			return ResponseEntity.ok().body(response.getJson());
@@ -161,7 +157,7 @@ public class BoardController {
 
 	}
 
-
+//댓글 불러오기
 	@GetMapping("/replyList")
 	@ResponseBody
 	public ResponseEntity<?> getReplyList(BoardReplyDTO boardReplyDTO) {
@@ -169,11 +165,19 @@ public class BoardController {
 		try {
 
 			BoardReplyEntity replyEntity = BoardReplyDTO.ToEntity(boardReplyDTO);
+			// 댓글 내역 및 수량 불러오기
 			List<BoardReplyEntity> replyList = service.getCommentList(replyEntity);
 			List<BoardReplyDTO> replyDTOList  = replyList.stream().map(BoardReplyDTO::new).collect(Collectors.toList());
 			List<JSONObject> replyJsonList = replyDTOList.stream()
 					.map(replyDTO -> ChangeJson.ToChangeJson(replyDTO))
 					.collect(Collectors.toList());
+			System.out.println(replyList.size());
+
+			//댓글 수량넣기 위한 작업
+			Map<String,Object> replyCntMap = new HashMap<>();
+			replyCntMap.put("replyCnt",replyList.size());
+			JSONObject replyCntJson = ChangeJson.ToChangeJson(replyCntMap);
+			replyJsonList.add(replyCntJson);
 
 			ResponseDTO<JSONObject> response = ResponseDTO.<JSONObject>builder().data(replyJsonList).build();
 
@@ -333,7 +337,7 @@ public class BoardController {
 		return combineImgPath(boardImgDTOList, boardimgPathData);
 	}
 
-	private JSONObject createBoardJsonObject(BoardDTO boardViewData, List<BoardImgDTO> boardImgDTOList, Long boardReplyCnt) {
+	private JSONObject createBoardJsonObject(BoardDTO boardViewData, List<BoardImgDTO> boardImgDTOList) {
 		JSONObject boardJsonObj = null;
 		if (Objects.nonNull(boardViewData)) {
 			boardJsonObj = ChangeJson.ToChangeJson(boardViewData);
@@ -342,9 +346,6 @@ public class BoardController {
 						.map(img -> ChangeJson.ToChangeJson(img))
 						.collect(Collectors.toList());
 				boardJsonObj.put("boardimg", imgJsonList);
-			}
-			if (boardReplyCnt != null) {
-				boardJsonObj.put("cnt", boardReplyCnt);
 			}
 		}
 		return boardJsonObj;

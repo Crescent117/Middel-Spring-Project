@@ -5,11 +5,12 @@ import UpdateComment from "./updateComment";
 import styles from "../detail.module.css";
 
 function CommentList(props) {
-  const { viewData, comments } = props;
+  const { viewData, comments,replyCnt,setReplyCnt } = props;
   const [commentList, setCommentList] = useState([]);
   const [reply, setReply] = useState(new Array(commentList.length).fill(false));
   const [openReplyIndex, setOpenReplyIndex] = useState(null);
   const [openUpdate, setOpenUpdate] = useState(null);
+ 
 
   useEffect(() => {
     getCommentList();
@@ -24,11 +25,21 @@ function CommentList(props) {
         },
       })
       .then((response) => {
-        console.log(response);
-        setCommentList(response.data);
+        let responseData = response.data
+        let commentListData = [];
+        let replyCntData = 0;
+        for(let i=0;i<responseData.length;i++ ){
+          if(i < responseData.length - 1){
+            commentListData.push(responseData[i])
+          }else{
+            replyCntData =responseData[i].replyCnt;
+          }
+        }
+        
+        setReplyCnt(replyCntData);
+        setCommentList(commentListData);
       })
       .catch((error) => {});
-    //'너는 뜨면안된다')
   };
 
   // 답글 열기 닫기
@@ -187,7 +198,7 @@ function CommentList(props) {
   return (
     <div className={styles.commentform} id="commentform">
       <div style={{ fontWeight: "bold", fontSize: "12px" }}>
-        <b>전체 댓글 </b> <span style={{ color: "red" }}>{viewData.cnt}</span>
+        <b>전체 댓글 </b> <span style={{ color: "red" }}>{replyCnt}</span>
         <b>개</b>
         <span
           id="commentHide"

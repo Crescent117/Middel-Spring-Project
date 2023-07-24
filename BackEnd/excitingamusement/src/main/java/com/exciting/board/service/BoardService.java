@@ -15,14 +15,13 @@ import com.exciting.entity.BoardReplyEntity;
 
 public interface BoardService {
 	BoardDTO boardView(int board_id);
-	Long boardReplyCnt(int board_id);
 	void boardVisit(final BoardEntity entity);
 	List<BoardImgEntity> boardImgSelect(int board_id);
 	void replyInsert(final BoardReplyEntity boardReplyEntity);
 	void changeFavorite(final BoardFavoriteEntity boardFavoriteEntity,int checkData);
-    List<BoardReplyEntity> getCommentList(final BoardReplyEntity boardReplyEntity);
+	List<BoardReplyEntity> getCommentList(final BoardReplyEntity boardReplyEntity);
 	void reReplyInsert(final BoardReplyEntity boardReplyEntity);
-	BoardEntity updateBoard(final BoardEntity entity); 
+	BoardEntity updateBoard(final BoardEntity entity);
 	int commitUpdateBoard(final BoardEntity boardEntity);
 	void boardImgInsert(final BoardImgEntity boardImgEntity);
 	List<BoardImgEntity> boardImgDelete(final BoardImgEntity boardImgEntity);

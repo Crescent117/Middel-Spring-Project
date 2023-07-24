@@ -92,13 +92,6 @@ public class BoardServiceImpl implements BoardService {
 	 * 
 	 */
 
-	// 게시글의 댓글 갯수
-	public Long boardReplyCnt(int board_id) {
-		Long boardReplyCnt = boardReplyRepository.boardReplyCnt(board_id);
-
-		return boardReplyCnt;
-	}
-
 	// 조회수 업데이트 처리
 	@Override
 	public void boardVisit(final BoardEntity entity) {

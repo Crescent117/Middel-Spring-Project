@@ -13,6 +13,7 @@ function Detail() {
   const [comments, setComments] = useState([]);
   const [deleteCheck, setdelteCheck] = useState(0);
   const [viewData, setViewData] = useState();
+  const [replyCnt,setReplyCnt] = useState(0);
   const location = useLocation();
 
   useEffect(() => {
@@ -102,7 +103,7 @@ function Detail() {
                       id="commentMove_top"
                       onClick={commentMoveTop}
                     >
-                      댓글 {viewData.cnt}
+                      댓글 {replyCnt}
                     </button>
                   </span>
                   <span
@@ -194,7 +195,7 @@ function Detail() {
               {/*댓글리스트*/}
               <div className={styles.commentList} id="commentList">
                 {viewData.board_id !== "" && (
-                  <CommentList viewData={viewData} comments={comments} />
+                  <CommentList viewData={viewData} comments={comments} setReplyCnt={setReplyCnt} replyCnt={replyCnt}  />
                 )}
               </div>
 
