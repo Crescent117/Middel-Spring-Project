@@ -96,7 +96,7 @@ function WriteComment(props) {
             title={emojiData.title}
           />
         ))}
-        <div className={styles.comment_cnt} id={styles.comment_cnt}>
+        <span className={styles.comment_cnt} id={styles.comment_cnt}>
           ({comment.length} / 200)
           <input
             type="button"
@@ -106,7 +106,7 @@ function WriteComment(props) {
             onClick={commentInsert}
             value="작성"
           />
-        </div>
+        </span>
       </div>
     </div>
   );
