@@ -1,9 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Row, Col, ListGroup, ListGroupItem } from "react-bootstrap";
-
+import "./footer.css"
 const Footer = () => {
+ 
+  useEffect(() => {
+    const footer = document.querySelector(".footer");
+
+    const adjustFooterPosition = () => {
+      const windowHeight = window.innerHeight;
+      const footerHeight = footer.offsetHeight;
+      const contentHeight = document.body.scrollHeight;
+
+      if (contentHeight < windowHeight) {
+        // 컨텐츠가 창보다 작은 경우에만 실행
+        footer.style.position = "absolute";
+        footer.style.bottom = 0;
+      } else {
+        footer.style.position = "static";
+      }
+    };
+
+    // 컨텐츠가 로드될 때와 창 크기가 변경될 때마다 푸터 위치 조정
+    window.addEventListener("load", adjustFooterPosition);
+    window.addEventListener("resize", adjustFooterPosition);
+
+    // 컴포넌트가 언마운트될 때 이벤트 리스너 해제
+    return () => {
+      window.removeEventListener("load", adjustFooterPosition);
+      window.removeEventListener("resize", adjustFooterPosition);
+    };
+  }, []);
+
   return (
-    <footer className="my-5" style={{ backgroundColor: "whitesmoke" }}>
+      <footer className="footer">
       <Container fluid>
         <Row>
           <Col xs={12} md={3}>

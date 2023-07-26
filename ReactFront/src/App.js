@@ -15,7 +15,6 @@ import { KakaoLogin } from "./login/service/kakaoLogin";
 import Login from "./login/views/login";
 import { useRef } from "react";
 // import AmuseList from "./pages/amuse-list/AmuseList";
-import Footer from "./index/components/Footer";
 import { GithubLogin } from "./login/views/githubLogin";
 
 import Order from "./promotion/order";
@@ -44,6 +43,7 @@ import { KakaoInter } from "./login/views/kakaoInter";
 import { FullWriteList } from "./login/views/fullWriteList";
 import SignUpComplete from "./login/views/signUpComplete";
 import SearchPw from "./login/views/searchpw";
+import Footer from "./index/components/Footer";
 
 const App = () => {
   const searchNameRef = useRef();
@@ -58,6 +58,7 @@ const App = () => {
         searchNameRef={searchNameRef}
         onChangeSearchName={onChangeSearchName}
       />
+      <div style={{ marginBottom: "100px" }}>
       {/* <Menu/> */}
       <Routes>
         {/* 일준 */}
@@ -127,6 +128,7 @@ const App = () => {
           <Route exact path="faq" element={<FAQ />}></Route>
         </Route>
       </Routes>
+      </div>
       <Footer />
     </Router>
   );
