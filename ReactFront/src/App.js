@@ -18,14 +18,24 @@ import { useRef } from "react";
 import Footer from "./index/components/Footer";
 import { GithubLogin } from "./login/views/githubLogin";
 
-import Order from "./component/order";
-import Promotion from "./component/Promotion";
-import Promotionprice from "./component/Promotionprice";
-import Mypoint from "./component/mypoint";
-import Orderlist from "./component/orderlist";
-
-import Layout from "./customerService/components/layout";
-
+import Order from "./promotion/order";
+import Promotion from "./promotion/Promotion";
+import Promotionprice from "./promotion/Promotionprice";
+import Mypoint from "./promotion/mypoint";
+import Orderlist from "./promotion/orderlist";
+import ElasticBoard from "./pages/Board/main/ElasticBoard";
+import AddBoard from "./pages/Board/addBoard/addBoard";
+import Detail from "./pages/Board/detail/detail";
+import UpdateBoard from "./pages/Board/updateBoard/updateBoard";
+import Layout from "./pages/customerService/components/layout";
+import Announcement from "./pages/customerService/announcement/main/announcement";
+import AddAnnouncement from "./pages/customerService/announcement/addAnnouncement/addAnnouncement";
+import AnnouncementDetail from "./pages/customerService/announcement/detail/announcementDetail";
+import UploadAnnouncement from "./pages/customerService/announcement/updateAnnouncement/uploadAnnouncement";
+import InsertInquiry from "./pages/customerService/Inquiry/insertInquiry/inserInquiry";
+import Inquiry from "./pages/customerService/Inquiry/InquriyList/inquiry";
+import InquiryDetail from "./pages/customerService/Inquiry/InquiryDetail/inquiryDetail";
+import FAQ from "./pages/customerService/faq/FAQ";
 import SignUp from "./login/views/signup";
 import NewPw from "./login/views/newPw";
 import PwComplete from "./login/views/pwComplete";
@@ -34,18 +44,6 @@ import { KakaoInter } from "./login/views/kakaoInter";
 import { FullWriteList } from "./login/views/fullWriteList";
 import SignUpComplete from "./login/views/signUpComplete";
 import SearchPw from "./login/views/searchpw";
-import ElasticBoard from "./Board/main/ElasticBoard";
-import AddBoard from "./Board/addBoard/addBoard";
-import Detail from "./Board/detail/detail";
-import UpdateBoard from "./Board/updateBoard/updateBoard";
-import Announcement from "./customerService/announcement/main/announcement";
-import AddAnnouncement from "./customerService/announcement/addAnnouncement/addAnnouncement";
-import AnnouncementDetail from "./customerService/announcement/detail/announcementDetail";
-import UploadAnnouncement from "./customerService/announcement/updateAnnouncement/uploadAnnouncement";
-import InsertInquiry from "./customerService/Inquiry/insertInquiry/inserInquiry";
-import Inquiry from "./customerService/Inquiry/InquriyList/inquiry";
-import InquiryDetail from "./customerService/Inquiry/InquiryDetail/inquiryDetail";
-import FAQ from "./customerService/faq/FAQ";
 
 const App = () => {
   const searchNameRef = useRef();

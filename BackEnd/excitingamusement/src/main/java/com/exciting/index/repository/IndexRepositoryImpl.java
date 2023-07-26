@@ -42,8 +42,8 @@ public List<AmusementAimageDTO> selectListAmuseInfoKoreaDSL() {
 	        .join(aimage)
 	        .on(amusement.amuse_id.eq(aimage.amuse_id))
 	        .where(amusement.a_country.eq("대한민국"))
-	        .groupBy(amusement.amuse_id)
-	        .orderBy(Expressions.numberTemplate(Double.class, "function('rand')").asc())
+			.groupBy(amusement.amuse_id, amusement.a_name, amusement.a_country, amusement.a_time, aimage.url)
+			.orderBy(Expressions.numberTemplate(Double.class, "function('rand')").asc())
 	        .limit(4);
 
 	return jpaQuery.fetch();
@@ -66,8 +66,8 @@ public List<AmusementAimageDTO> selectListAmuseInfoForeignDSL() {
 	        .join(aimage)
 	        .on(amusement.amuse_id.eq(aimage.amuse_id))
 	        .where(amusement.a_country.ne("대한민국"))
-	        .groupBy(amusement.amuse_id)
-	        .orderBy(Expressions.numberTemplate(Double.class, "function('rand')").asc())
+			.groupBy(amusement.amuse_id, amusement.a_name, amusement.a_country, amusement.a_time, aimage.url)
+			.orderBy(Expressions.numberTemplate(Double.class, "function('rand')").asc())
 	        .limit(4);
 
 	return jpaQuery.fetch();

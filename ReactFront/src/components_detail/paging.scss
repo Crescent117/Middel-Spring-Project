@@ -20,11 +20,11 @@ ul.pagination li {
   font-size: 1rem;
 }
 
-ul.pagination li:first-child{
+ul.pagination li:first-child {
   border-radius: 5px 0 0 5px;
 }
 
-ul.pagination li:last-child{
+ul.pagination li:last-child {
   border-radius: 0 5px 5px 0;
 }
 
@@ -42,7 +42,7 @@ ul.pagination li.active {
   background-color: #337ab7;
 }
 
-ul.pagination li:hover{
+ul.pagination li:hover {
   background-color: lightblue;
 }
 

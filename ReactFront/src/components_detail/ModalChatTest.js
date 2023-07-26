@@ -61,17 +61,17 @@
 //     useEffect(() => {
 //         receivedMessages && setChatList((prev) => [...prev, receivedMessages]);
 //     },[receivedMessages])
-    
+
 //     useEffect(() => {
 //         socket.on('test', data => {
 //             setReceivedMessages(data.message);
 //             setUser(data.member_id);
 //         });
 //     },[socket])
-    
+
 // 	const sendMessage = e => {
 //         e.preventDefault();
-        
+
 //         //소켓 서버로 데이터 전송
 // 		socket.emit("test", {
 // 			member_id: member_id, message: message
@@ -82,8 +82,8 @@
 // 	}
 
 //     return (
-//         <div className={open ? 'openModal modal' : 'modal'}>    
-//             {open ? 
+//         <div className={open ? 'openModal modal' : 'modal'}>
+//             {open ?
 //             (
 //             <section style={{position:'relative'}}>
 //                 <header>
@@ -93,9 +93,9 @@
 //                     </button>
 //                 </header>
 //                 <main style={{position:'relative', height:'300px', width:'100%'}}>
-//                     <ShowChatList 
-//                         chatList={chatList} 
-//                         member_id={member_id} 
+//                     <ShowChatList
+//                         chatList={chatList}
+//                         member_id={member_id}
 //                         user={user}
 //                     />
 //                 </main>
@@ -112,7 +112,7 @@
 //                 </footer>
 //             </section>
 //             )
-//             : 
+//             :
 //             null}
 //         </div>
 //     );

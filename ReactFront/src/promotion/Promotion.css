@@ -1,0 +1,42 @@
+.container.custom-main-padding1.border-bottom {
+  display: flex;
+  flex-wrap: wrap; /* 카드가 여러 줄로 나뉘어질 수 있도록 설정 */
+  justify-content: center;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 1200px; /* 원하는 최대 넓이로 설정하세요. */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card1 {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.card-images {
+  width: 100%;
+  height: 100%;
+  /* object-fit: cover; 이미지 비율을 유지하면서 이미지를 자르기 위해 변경 */
+}
+
+.card-body1 {
+  flex: 1; /* 카드 바디의 높이를 남은 공간에 맞게 자동으로 조절 */
+  padding: 1rem;
+  text-align: left;
+  align-self: left;
+}
+
+.custom-main-padding1 {
+  padding-bottom: 200px;
+}

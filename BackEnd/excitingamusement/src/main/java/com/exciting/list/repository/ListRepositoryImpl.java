@@ -56,7 +56,13 @@ public class ListRepositoryImpl implements CustomListRepository{
             jpaQuery.where(am.a_country.eq(searchCountry));
         }
 
-        jpaQuery.groupBy(am.amuse_id);
+        jpaQuery.groupBy(am.amuse_id,
+                am.a_name,
+                am.a_country,
+                am.a_time,
+                am.a_lat,
+                am.a_lng,
+                ai.url);
 
         if (order != null && !order.isEmpty()) {
             OrderSpecifier<?> orderSpecifier;

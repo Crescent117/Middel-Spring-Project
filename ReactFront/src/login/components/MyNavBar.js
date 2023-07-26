@@ -50,7 +50,7 @@ const MyNavbar = () => {
               <i className="bi bi-clipboard-check rounded-0"></i>나의 활동 정보
             </Accordion.Header>
             <Accordion.Body>
-              <Link to="/mypage/orderlist" className="text-decoration-none text-dark">
+              <Link to="/orderlist" className="text-decoration-none text-dark">
                 <div className="rounded shadow mb-3 p-3">
                   <i className="bi bi-cart"></i>구매 내역
                 </div>
@@ -69,11 +69,6 @@ const MyNavbar = () => {
               >
                 <div className="rounded shadow mb-3 p-3">
                   <i className="bi bi-chat-right-text"></i>댓글 리스트
-                </div>
-              </Link>
-              <Link to="/mypage/refund" className="text-decoration-none text-danger">
-                <div className="rounded shadow mb-3 p-3">
-                  <i className="bi bi-cart-dash-fill text-danger"></i>환불 신청
                 </div>
               </Link>
             </Accordion.Body>

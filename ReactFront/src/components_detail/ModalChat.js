@@ -28,7 +28,7 @@
 //     //     ))}
 //     //     </ul>
 //     // </div>
-    
+
 //     <div>
 //         <ul>
 //         {props.receivedMessages?.map((msg, index) => (
@@ -49,7 +49,7 @@
 
 //     // const [enterMsg, setEnterMsg] = useState([]);
 //     // const [isOpen, setIsOpen] = useState(false);
-    
+
 //     // const [user, setUser] = useState(member_id);
 
 //     const socket = io('http://localhost:5000', {
@@ -57,7 +57,7 @@
 // 			origin: "*",
 // 		}
 // 	});
-    
+
 //     socket.on('test', data => {
 //         setReceivedMessages((prevMessages) => [...prevMessages, data.message]);
 //         // setUser(data.member_id);
@@ -65,7 +65,7 @@
 
 // 	const sendMessage = e => {
 //         e.preventDefault();
-        
+
 //         //소켓 서버로 데이터 전송
 // 		socket.emit("test", {
 // 			member_id: member_id, message: message
@@ -75,7 +75,7 @@
 //         e.target.value = "";
 // 	}
 
-//     //===================================    
+//     //===================================
 //     // useLayoutEffect(() => {
 //     //     if (open) {
 //     //       // 채팅창이 열리면 상태 초기화
@@ -91,11 +91,10 @@
 //     //     }
 //     //   },[open]);
 //     //===================================
-      
 
 //     return (
-//         <div className={open ? 'openModal modal' : 'modal'}>    
-//             {open ? 
+//         <div className={open ? 'openModal modal' : 'modal'}>
+//             {open ?
 //             (
 //             <section style={{position:'relative'}}>
 //                 <header>
@@ -108,9 +107,9 @@
 //                     {/* <div style={{textAlign:'center'}}>
 //                         {enterMsg}
 //                     </div> */}
-//                     <ShowChatList 
-//                         receivedMessages={receivedMessages} 
-//                         member_id={member_id} 
+//                     <ShowChatList
+//                         receivedMessages={receivedMessages}
+//                         member_id={member_id}
 //                         // user={user}
 //                         // enterMsg={enterMsg}
 //                     />
@@ -128,7 +127,7 @@
 //                 </footer>
 //             </section>
 //             )
-//             : 
+//             :
 //             null}
 //         </div>
 //     );

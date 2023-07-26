@@ -36,7 +36,8 @@ public class Ticket {
     private Promotion promotion;
 
     @Column(name = "ticket_name", length = 50)
-    private String ticketName;
+    private String ticket_name;
+
 
     @Column(name = "ticket_price")
     private int ticket_price;

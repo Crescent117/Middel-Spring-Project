@@ -45,13 +45,14 @@ public class PromotionDTO {
 	}
 
 	public PromotionDTO(int promotion_id, String promotion_content, String promotion_name, String promotion_img,
-			int ticket_price,int ticket_id,double discount) {
+int ticket_price,int ticket_id,String ticket_name,double discount) {
 		this.promotion_id = promotion_id;
 		this.promotion_content = promotion_content;
 		this.promotion_name = promotion_name;
 		this.promotion_img = promotion_img;
 		this.ticket_price = ticket_price;
 		this.ticket_id = ticket_id;
+		this.ticket_name = ticket_name;
 		this.discount = discount;
 	}
 	public PromotionDTO(int promotion_id, String promotion_content, String promotion_name, String promotion_img) {

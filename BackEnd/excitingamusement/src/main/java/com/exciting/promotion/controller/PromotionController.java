@@ -68,6 +68,7 @@ public class PromotionController {
 						promotionprice.getPromotion_img(),
 						promotionprice.getTicket_price(),
 						promotionprice.getTicket_id(),
+						promotionprice.getTicket_name(),
 						promotionprice.getDiscount()))
 				.collect(Collectors.toList());
 
