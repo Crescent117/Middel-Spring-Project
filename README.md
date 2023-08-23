@@ -2,6 +2,20 @@
 <br/>
 <br/>
 
+## 이 프로젝트는?
+### 개발 범위
+담당페이지 백엔드 + 프론트엔드 모든 범위
+<br>
+### 사용대상자
+놀이공원 할인예매 및 국내,해외 놀이공원정보 게시판
+
+### 특이사항
+기존 Spring + JSP 프로젝트를 SpringBoot + React로 변경
+<br>
+<br>
+![image](https://user-images.githubusercontent.com/121388591/256125814-5414aeb6-25e8-43ac-96b5-6cc7af955729.png)
+<br>
+
 ## 사용기술 
 ### JAVA : 11
 ### DB : Mysql
@@ -116,6 +130,7 @@
 혹시 실행하기 힘드시다면 localhost3000 기준 "http://localhost:3000/detail?board_id={db에 저장되어있는 board_id 입력}"
 이렇게 하시면 상세페이지를 보실 수 있습니다.
 <br>
+
 ## 사이트 관리자 ID : hong1
 ## 사이트 관리자 비밀번호 : !string1234
 <br/><br/>
