@@ -16,22 +16,7 @@
 <br/><br/>
 <hr/>
 
-# Board 메인 게시판 ElasticSearch 사용법
-<br/>
-1. Elasticsearch/bin/elasticsearch.bat 실행
-<br/>
-2. Kibana/bin/kibana.bat 실행
-<br/>
-3. logstash.conf를 config 폴더에 넣는다
-<br/>
-4. logstash/bin ---> cmd ---> logstash.bat -f ../config/logstash.conf
-<br/><br/>
-혹시 실행하기 힘드시다면 localhost3000 기준 "http://localhost:3000/detail?board_id={db에 저장되어있는 board_id 입력}"
-이렇게 하시면 상세페이지를 보실 수 있습니다.
 
-## 사이트 관리자 ID : hong1
-## 사이트 관리자 비밀번호 : !string1234
-<br/><br/>
 
 ## 팀프로젝트 게시판 Board, 고객센터 CustomerService 담당
 <br/>
@@ -106,9 +91,9 @@
    - ElasticSearch에서 Query문에 검색값등 있어도 되고 없어도 되는 값에 대해 어떻게 처리할까 고민했고 이에 대해 책이나 검색을 통해 해결법을 찾아냄.
    - 서버 외부에 이미지를 저장하는 기능을 만드는 도중 해당 폴더가 없으면 에러가 터지는 것을 발견
      - 이에 관해서 application.properties에 저장경로를 설정하고 FileUtils라는 클래스를 생성해 서버 시작시 자동으로 application.properties에 저장된
-       경로에 폴더가 생성되도록 했음.
+       경로에 폴더가 생성되도록 했습니다.
    - 1:1문의에 게시글을 출력할때 많은 조건문이 붙고 이에 대해 repository의 Query가 증가하거나 상황에따라 method가 많아지고 통신을 많이해야하는 문제점이 있었음.
-     - 이것에 관해 코드량을 줄이고 repository를 좀 더 깔끔하게 쓸 방법을 찾아본 결과 JpaSpecification이란 기능을 찾아내었고 적용시킴. 
+     - 이것에 관해 코드량을 줄이고 repository를 좀 더 깔끔하게 쓸 방법을 찾아본 결과 JpaSpecification이란 기능을 찾아내었고 적용시켰습니다. 
       
 
 # 문제점
@@ -117,3 +102,22 @@ ElasticSearch를 이용해 Board게시판의 게시글을 불러와서 출력은
 왜냐면 ElasticSearch는 실시간통신이 되는 시스템이 아니기 때문에 logstash로 읽어들인 DB데이터를 elastic의 index에 저장을 하고 뽑아 오기때문.
 <br/>
 이 부분에 대해선 팀과의 회의에서 결정났고 후에 문제가 있다면 JAVA BackEnd 통신으로 바꾸겠습니다
+
+# Reference
+
+# Board 메인 게시판 ElasticSearch 사용법
+<br/>
+1. Elasticsearch/bin/elasticsearch.bat 실행
+<br/>
+2. Kibana/bin/kibana.bat 실행
+<br/>
+3. logstash.conf를 config 폴더에 넣는다
+<br/>
+4. logstash/bin ---> cmd ---> logstash.bat -f ../config/logstash.conf
+<br/><br/>
+혹시 실행하기 힘드시다면 localhost3000 기준 "http://localhost:3000/detail?board_id={db에 저장되어있는 board_id 입력}"
+이렇게 하시면 상세페이지를 보실 수 있습니다.
+
+## 사이트 관리자 ID : hong1
+## 사이트 관리자 비밀번호 : !string1234
+<br/><br/>
